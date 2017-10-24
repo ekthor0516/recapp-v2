@@ -33,8 +33,9 @@ public class MainScreen extends HorizontalLayout {
         menu = new Menu(navigator);
         menu.addView(new SampleCrudView(), SampleCrudView.VIEW_NAME,
                 SampleCrudView.VIEW_NAME, VaadinIcons.EDIT);
-        // HSP
-        menu.addView(new ManifiestosCrudView(), ManifiestosCrudView.VIEW_NAME,
+        // HSP       
+        ManifiestosCrudView vista = new ManifiestosCrudView();
+        menu.addView(vista, ManifiestosCrudView.VIEW_NAME,
                 ManifiestosCrudView.VIEW_NAME, VaadinIcons.EDIT);
         //HSP
         menu.addView(new AboutView(), AboutView.VIEW_NAME, AboutView.VIEW_NAME,
