@@ -2,7 +2,7 @@ package mx.ipn.tesis.recapp.manifiestos.crud;
 
 import mx.ipn.tesis.recapp.samples.ResetButtonForTextField;
 import mx.ipn.tesis.recapp.samples.backend.DataService;
-import mx.ipn.tesis.recapp.samples.backend.data.Product;
+import mx.ipn.tesis.recapp.samples.backend.data.Servicio;
 
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
@@ -16,9 +16,9 @@ import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
-import mx.ipn.tesis.recapp.samples.crud.ProductDataProvider;
+import mx.ipn.tesis.recapp.samples.crud.ServicioDataProvider;
 import mx.ipn.tesis.recapp.samples.crud.ProductForm;
-import mx.ipn.tesis.recapp.samples.crud.ProductGrid;
+import mx.ipn.tesis.recapp.samples.crud.ServicioGrid;
 
 /**
  * A view for performing create-read-update-delete operations on products.
@@ -29,21 +29,21 @@ import mx.ipn.tesis.recapp.samples.crud.ProductGrid;
 public class ManifiestosCrudView extends CssLayout implements View {
 
     public static final String VIEW_NAME = "Medico";
-    private ProductGrid grid;
+    private ServicioGrid grid;
     private ManifiestoForm form;
     private TextField filter;
 
     private ManifiestosCrudLogic viewLogic = new ManifiestosCrudLogic(this);
     private Button newProduct;
 
-    private ProductDataProvider dataProvider = new ProductDataProvider();
+    private ServicioDataProvider dataProvider = new ServicioDataProvider();
 
     public ManifiestosCrudView() {
         setSizeFull();
         addStyleName("crud-view");
         HorizontalLayout topLayout = createTopBar();
 
-        grid = new ProductGrid();
+        grid = new ServicioGrid();
         grid.setDataProvider(dataProvider);
         grid.asSingleSelect().addValueChangeListener(
                 event -> viewLogic.rowSelected(event.getValue()));
@@ -108,24 +108,24 @@ public class ManifiestosCrudView extends CssLayout implements View {
         grid.getSelectionModel().deselectAll();
     }
 
-    public void selectRow(Product row) {
+    public void selectRow(Servicio row) {
         grid.getSelectionModel().select(row);
     }
 
-    public Product getSelectedRow() {
+    public Servicio getSelectedRow() {
         return grid.getSelectedRow();
     }
 
-    public void updateProduct(Product product) {
+    public void updateProduct(Servicio product) {
         dataProvider.save(product);
         // FIXME: Grid used to scroll to the updated item
     }
 
-    public void removeProduct(Product product) {
+    public void removeProduct(Servicio product) {
         dataProvider.delete(product);
     }
 
-    public void editProduct(Product product) {
+    public void editProduct(Servicio product) {
         if (product != null) {
             form.addStyleName("visible");
             form.setEnabled(true);

@@ -1,12 +1,11 @@
 package mx.ipn.tesis.recapp.manifiestos.crud;
 
 import mx.ipn.tesis.recapp.MyUI;
-import mx.ipn.tesis.recapp.samples.backend.DataService;
-import mx.ipn.tesis.recapp.samples.backend.data.Product;
+import mx.ipn.tesis.recapp.samples.backend.ServicioDataService;
+import mx.ipn.tesis.recapp.samples.backend.data.Servicio;
 
 import java.io.Serializable;
 import com.vaadin.server.Page;
-import mx.ipn.tesis.recapp.samples.crud.SampleCrudView;
 
 /**
  * This class provides an interface for the logical operations between the CRUD
@@ -51,7 +50,7 @@ public class ManifiestosCrudLogic implements Serializable {
 
         Page page = MyUI.get().getPage();
         page.setUriFragment(
-                "!" + SampleCrudView.VIEW_NAME + "/" + fragmentParameter,
+                "!" + ManifiestosCrudView.VIEW_NAME + "/" + fragmentParameter,
                 false);
     }
 
@@ -64,7 +63,7 @@ public class ManifiestosCrudLogic implements Serializable {
                 // login
                 try {
                     int pid = Integer.parseInt(productId);
-                    Product product = findProduct(pid);
+                    Servicio product = findProduct(pid);
                     view.selectRow(product);
                 } catch (NumberFormatException e) {
                 }
@@ -72,11 +71,11 @@ public class ManifiestosCrudLogic implements Serializable {
         }
     }
 
-    private Product findProduct(int productId) {
-        return DataService.get().getProductById(productId);
+    private Servicio findProduct(int productId) {
+        return ServicioDataService.get().getProductById(productId);
     }
 
-    public void saveProduct(Product product) {
+    public void saveProduct(Servicio product) {
         view.showSaveNotification(product.getProductName() + " ("
                 + product.getId() + ") guardado");
         view.clearSelection();
@@ -84,7 +83,7 @@ public class ManifiestosCrudLogic implements Serializable {
         setFragmentParameter("");
     }
 
-    public void deleteProduct(Product product) {
+    public void deleteProduct(Servicio product) {
         view.showSaveNotification(product.getProductName() + " ("
                 + product.getId() + ") borrado");
         view.clearSelection();
@@ -92,7 +91,7 @@ public class ManifiestosCrudLogic implements Serializable {
         setFragmentParameter("");
     }
 
-    public void editProduct(Product product) {
+    public void editProduct(Servicio product) {
         if (product == null) {
             setFragmentParameter("");
         } else {
@@ -104,10 +103,10 @@ public class ManifiestosCrudLogic implements Serializable {
     public void newProduct() {
         view.clearSelection();
         setFragmentParameter("new");
-        view.editProduct(new Product());
+        view.editProduct(new Servicio());
     }
 
-    public void rowSelected(Product product) {
+    public void rowSelected(Servicio product) {
         if (MyUI.get().getAccessControl().isUserInRole("administrador")) {
             view.editProduct(product);
         }

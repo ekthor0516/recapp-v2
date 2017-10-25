@@ -10,7 +10,7 @@ import java.util.Locale;
 import mx.ipn.tesis.recapp.samples.AttributeExtension;
 import mx.ipn.tesis.recapp.samples.backend.data.Availability;
 import mx.ipn.tesis.recapp.samples.backend.data.Category;
-import mx.ipn.tesis.recapp.samples.backend.data.Product;
+import mx.ipn.tesis.recapp.samples.backend.data.Servicio;
 
 import com.vaadin.data.BeanValidationBinder;
 import com.vaadin.data.Binder;
@@ -31,8 +31,8 @@ public class ManifiestoForm extends ProductFormDesign {
     
 //    private TextField tipoServicio;
     private ManifiestosCrudLogic viewLogic;
-    private Binder<Product> binder;
-    private Product currentProduct;
+    private Binder<Servicio> binder;
+    private Servicio currentProduct;
 
     private static class StockPriceConverter extends StringToIntegerConverter {
 
@@ -77,7 +77,7 @@ public class ManifiestoForm extends ProductFormDesign {
         availability.setItems(Availability.values());
         availability.setEmptySelectionAllowed(false);
 
-        binder = new BeanValidationBinder<>(Product.class);
+        binder = new BeanValidationBinder<>(Servicio.class);
         binder.forField(price).withConverter(new EuroConverter())
                 .bind("price");
         binder.forField(stockCount).withConverter(new StockPriceConverter())
@@ -118,9 +118,9 @@ public class ManifiestoForm extends ProductFormDesign {
         category.setItems(categories);
     }
 
-    public void editProduct(Product product) {
+    public void editProduct(Servicio product) {
         if (product == null) {
-            product = new Product();
+            product = new Servicio();
         }
         currentProduct = product;
         binder.readBean(product);
