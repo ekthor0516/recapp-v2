@@ -1,7 +1,7 @@
 package mx.ipn.tesis.recapp.samples.backend.data;
 
 public enum Availability {
-    COMING("Pendiente"), AVAILABLE("En curso"), DISCONTINUED("Realizado");
+    COMING("Residuo Industrial"), AVAILABLE("Residuo Médico");
 
     private final String name;
 

@@ -17,7 +17,12 @@ import com.vaadin.data.Binder;
 import com.vaadin.data.Result;
 import com.vaadin.data.converter.StringToIntegerConverter;
 import com.vaadin.data.ValueContext;
+import com.vaadin.server.AbstractClientConnector;
 import com.vaadin.server.Page;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.CheckBoxGroup;
+import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.TextField;
 
 /**
@@ -27,12 +32,25 @@ import com.vaadin.ui.TextField;
  * side of the view or filling the whole screen - see the theme for the related
  * CSS rules.
  */
-public class ManifiestoForm extends ProductFormDesign {
+public class ManifiestoForm extends FormLayout {
     
 //    private TextField tipoServicio;
     private ManifiestosCrudLogic viewLogic;
     private Binder<Servicio> binder;
     private Servicio currentProduct;
+    private TextField stockCount;
+    
+    protected TextField empresaGeneradora;
+    protected TextField price;
+    
+    protected TextField campoPrueba;  
+    
+    protected ComboBox<Availability> availability;
+    protected CheckBoxGroup<Category> category;
+    protected Button save;
+    protected Button discard;
+    protected Button cancel;
+    protected Button delete;
 
     private static class StockPriceConverter extends StringToIntegerConverter {
 
@@ -71,6 +89,8 @@ public class ManifiestoForm extends ProductFormDesign {
         // Mark the stock count field as numeric.
         // This affects the virtual keyboard shown on mobile devices.
         AttributeExtension stockFieldExtension = new AttributeExtension();
+        stockCount = new TextField();
+        availability = new ComboBox();
         stockFieldExtension.extend(stockCount);
         stockFieldExtension.setAttribute("type", "number");
 

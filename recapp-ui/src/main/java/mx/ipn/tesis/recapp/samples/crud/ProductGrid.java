@@ -37,7 +37,7 @@ public class ProductGrid extends Grid<Product> {
 
         // Add an traffic light icon in front of availability
         addColumn(this::htmlFormatAvailability, new HtmlRenderer())
-                .setCaption("Estatus").setComparator((p1, p2) -> {
+                .setCaption("Tipo Servicio").setComparator((p1, p2) -> {
                     return p1.getAvailability().toString()
                             .compareTo(p2.getAvailability().toString());
                 });
@@ -76,9 +76,9 @@ public class ProductGrid extends Grid<Product> {
         case COMING:
             color = "#ffc66e";
             break;
-        case DISCONTINUED:
-            color = "#f54993";
-            break;
+//        case DISCONTINUED:
+//            color = "#f54993";
+//            break;
         default:
             break;
         }

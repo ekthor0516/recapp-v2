@@ -76,9 +76,9 @@ public class ServicioGrid extends Grid<Servicio> {
         case COMING:
             color = "#ffc66e";
             break;
-        case DISCONTINUED:
-            color = "#f54993";
-            break;
+//        case DISCONTINUED:
+//            color = "#f54993";
+//            break;
         default:
             break;
         }
