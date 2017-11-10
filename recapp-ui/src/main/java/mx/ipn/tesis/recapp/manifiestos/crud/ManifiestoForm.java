@@ -98,57 +98,71 @@ public class ManifiestoForm extends FormLayout {
         availability.setEmptySelectionAllowed(false);
 
         binder = new BeanValidationBinder<>(Servicio.class);
+        price = new TextField();
         binder.forField(price).withConverter(new EuroConverter())
                 .bind("price");
         binder.forField(stockCount).withConverter(new StockPriceConverter())
                 .bind("stockCount");
-
+        
+        category = new CheckBoxGroup();
         category.setItemCaptionGenerator(Category::getName);
         binder.forField(category).bind("category");
         binder.bindInstanceFields(this);
 
         // enable/disable save button while editing
-        binder.addStatusChangeListener(event -> {
-            boolean isValid = !event.hasValidationErrors();
-            boolean hasChanges = binder.hasChanges();
-            save.setEnabled(hasChanges && isValid);
-            discard.setEnabled(hasChanges);
-        });
+//        binder.addStatusChangeListener(event -> {
+//            boolean isValid = !event.hasValidationErrors();
+//            boolean hasChanges = binder.hasChanges();
+//            save.setEnabled(hasChanges && isValid);
+//            discard.setEnabled(hasChanges);
+//        });        
 
-        save.addClickListener(event -> {
-            if (currentProduct != null
-                    && binder.writeBeanIfValid(currentProduct)) {
-                viewLogic.saveProduct(currentProduct);
-            }
-        });
+//        save.addClickListener(event -> {
+//            if (currentProduct != null
+//                    && binder.writeBeanIfValid(currentProduct)) {
+//                viewLogic.saveProduct(currentProduct);
+//            }
+//        });
 
-        discard.addClickListener(
-                event -> viewLogic.editProduct(currentProduct));
+//        discard.addClickListener(
+//                event -> viewLogic.editProduct(currentProduct));
 
-        cancel.addClickListener(event -> viewLogic.cancelProduct());
+//        cancel.addClickListener(event -> viewLogic.cancelProduct());
 
-        delete.addClickListener(event -> {
-            if (currentProduct != null) {
-                viewLogic.deleteProduct(currentProduct);
-            }
-        });
+//        delete.addClickListener(event -> {
+//            if (currentProduct != null) {
+//                viewLogic.deleteProduct(currentProduct);
+//            }
+//        });
     }
 
     public void setCategories(Collection<Category> categories) {
         category.setItems(categories);
     }
 
-    public void editProduct(Servicio product) {
+    public void editProduct(Servicio product) {        
         if (product == null) {
+            System.out.println("es nulo");
             product = new Servicio();
-        }
+        }else{
+            System.out.println("no es nulo "+product.getId());
+        }        
         currentProduct = product;
+        
+        if (product == null) {
+            System.out.println("sigue nulo");
+        }else{
+            System.out.println("no es nulo "+product.getId());
+        }      
+        
         binder.readBean(product);
 
         // Scroll to the top
         // As this is not a Panel, using JavaScript
         String scrollScript = "window.document.getElementById('" + getId()
                 + "').scrollTop = 0;";
+        System.out.println("ejecucion: "+scrollScript);
         Page.getCurrent().getJavaScript().execute(scrollScript);
+        
     }
 }

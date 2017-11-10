@@ -31,14 +31,14 @@ public class MainScreen extends HorizontalLayout {
         final Navigator navigator = new Navigator(ui, viewContainer);
         navigator.setErrorView(ErrorView.class);
         menu = new Menu(navigator);                
-        
-        menu.addView(new SampleCrudView(), SampleCrudView.VIEW_NAME,
-                SampleCrudView.VIEW_NAME, VaadinIcons.EDIT);
-        
+
         // HSP       
         menu.addView(new ManifiestosCrudView(), ManifiestosCrudView.VIEW_NAME,
                 ManifiestosCrudView.VIEW_NAME, VaadinIcons.EDIT);
         //HSP
+        
+        menu.addView(new SampleCrudView(), SampleCrudView.VIEW_NAME,
+                SampleCrudView.VIEW_NAME, VaadinIcons.EDIT);
         
         menu.addView(new AboutView(), AboutView.VIEW_NAME, AboutView.VIEW_NAME,
                 VaadinIcons.INFO_CIRCLE);

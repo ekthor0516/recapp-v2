@@ -17,7 +17,6 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
 import mx.ipn.tesis.recapp.samples.crud.ServicioDataProvider;
-import mx.ipn.tesis.recapp.samples.crud.ProductForm;
 import mx.ipn.tesis.recapp.samples.crud.ServicioGrid;
 
 /**
@@ -134,5 +133,6 @@ public class ManifiestosCrudView extends CssLayout implements View {
             form.setEnabled(false);
         }
         form.editProduct(product);
+        System.out.println("ya lo llamó");
     }
 }

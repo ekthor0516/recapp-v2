@@ -16,11 +16,11 @@ import com.vaadin.server.Page;
  * the system separately, and to e.g. provide alternative views for the same
  * data.
  */
-public class ManifiestosCrudLogic implements Serializable {
+public class ServicioLogic implements Serializable {
 
     private ManifiestosCrudView view;
 
-    public ManifiestosCrudLogic(ManifiestosCrudView simpleCrudView) {
+    public ServicioLogic(ManifiestosCrudView simpleCrudView) {
         view = simpleCrudView;
     }
 
@@ -94,12 +94,9 @@ public class ManifiestosCrudLogic implements Serializable {
     public void editProduct(Servicio product) {
         if (product == null) {
             setFragmentParameter("");
-            System.out.println("servicio: nulo");
         } else {
             setFragmentParameter(product.getId() + "");
-            System.out.println("servicio: "+product.getId());
         }
-        
         view.editProduct(product);
     }
 
@@ -110,7 +107,7 @@ public class ManifiestosCrudLogic implements Serializable {
     }
 
     public void rowSelected(Servicio product) {
-        if (MyUI.get().getAccessControl().isUserInRole("admin")) {
+        if (MyUI.get().getAccessControl().isUserInRole("administrador")) {
             view.editProduct(product);
         }
     }
