@@ -25,7 +25,7 @@ import com.vaadin.ui.themes.ValoTheme;
  */
 public class SampleCrudView extends CssLayout implements View {
 
-    public static final String VIEW_NAME = "Industrial";
+    public static final String VIEW_NAME = "Residuos Médicos";
     private ProductGrid grid;
     private ProductForm form;
     private TextField filter;
@@ -69,7 +69,7 @@ public class SampleCrudView extends CssLayout implements View {
         // Apply the filter to grid's data provider. TextField value is never null
         filter.addValueChangeListener(event -> dataProvider.setFilter(event.getValue()));
 
-        newProduct = new Button("Nuevo servicio");
+        newProduct = new Button("Nuevo Manifiesto");
         newProduct.addStyleName(ValoTheme.BUTTON_PRIMARY);
         newProduct.setIcon(VaadinIcons.PLUS_CIRCLE);
         newProduct.addClickListener(click -> viewLogic.newProduct());

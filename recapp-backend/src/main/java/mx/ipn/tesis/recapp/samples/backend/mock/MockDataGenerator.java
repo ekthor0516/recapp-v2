@@ -16,8 +16,8 @@ public class MockDataGenerator {
     private static int nextProductId = 1;
     private static final Random random = new Random(1);
     private static final String categoryNames[] = new String[] {
-            "Residuos Médicos", "Residuos Industriales", "Residuos Quimicos", "Aguas Tratadas",
-            "Residuos Infecciosos" };
+            "Instituto Mexicano Bacteriologico", "Clinica Especializada", "Sistema Nacional Central", 
+            "Centro de Atención de Infecciones"};
 
     private static String[] word1 = new String[] { "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
              "20", "21", "22", "23", "24", "25", "26", "27", "28", "29",
@@ -81,7 +81,8 @@ public class MockDataGenerator {
         p.setId(nextProductId++);
         p.setProductName(generateName());
 
-        p.setPrice(new BigDecimal((random.nextInt(250000) + 5000) / 10.0));
+//        p.setPrice(new BigDecimal((random.nextInt(250000) + 5000) / 10.0));
+        p.setPrice(new BigDecimal(0));
         p.setAvailability(Availability.values()[random.nextInt(Availability
                 .values().length)]);
         if (p.getAvailability() == Availability.AVAILABLE) {

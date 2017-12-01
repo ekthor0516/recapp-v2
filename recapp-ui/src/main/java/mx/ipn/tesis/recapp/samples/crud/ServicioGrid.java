@@ -37,7 +37,7 @@ public class ServicioGrid extends Grid<Servicio> {
 
         // Add an traffic light icon in front of availability
         addColumn(this::htmlFormatAvailability, new HtmlRenderer())
-                .setCaption("Empresa Generadora").setComparator((p1, p2) -> {
+                .setCaption("Tipo de residuos").setComparator((p1, p2) -> {
                     return p1.getAvailability().toString()
                             .compareTo(p2.getAvailability().toString());
                 });
@@ -48,12 +48,12 @@ public class ServicioGrid extends Grid<Servicio> {
                 return "-";
             }
             return Integer.toString(product.getStockCount());
-        }).setCaption("Número de Contenedores").setComparator((p1, p2) -> {
+        }).setCaption("# Contenedores").setComparator((p1, p2) -> {
             return Integer.compare(p1.getStockCount(), p2.getStockCount());
         }).setStyleGenerator(product -> "align-right");
 
         // Show all categories the product is in, separated by commas
-        addColumn(this::formatCategories).setCaption("Tipo de residuos").setSortable(false);
+        addColumn(this::formatCategories).setCaption("Empresa Generadora").setSortable(false);
     }
 
     public Servicio getSelectedRow() {

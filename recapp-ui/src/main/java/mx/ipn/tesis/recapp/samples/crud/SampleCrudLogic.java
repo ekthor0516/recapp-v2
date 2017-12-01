@@ -23,11 +23,11 @@ public class SampleCrudLogic implements Serializable {
     public SampleCrudLogic(SampleCrudView simpleCrudView) {
         view = simpleCrudView;
     }
-
+    
     public void init() {
         editProduct(null);
         // Hide and disable if not admin
-        if (!MyUI.get().getAccessControl().isUserInRole("admin")) {
+        if (!MyUI.get().getAccessControl().isUserInRole("administrador")) {
             view.setNewProductEnabled(false);
         }
     }
@@ -107,8 +107,8 @@ public class SampleCrudLogic implements Serializable {
     }
 
     public void rowSelected(Product product) {
-        if (MyUI.get().getAccessControl().isUserInRole("admin")) {
+//        if (MyUI.get().getAccessControl().isUserInRole("administrador")) {
             view.editProduct(product);
-        }
+//        }
     }
 }

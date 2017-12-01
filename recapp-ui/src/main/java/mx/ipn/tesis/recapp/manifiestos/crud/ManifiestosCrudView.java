@@ -27,7 +27,7 @@ import mx.ipn.tesis.recapp.samples.crud.ServicioGrid;
  */
 public class ManifiestosCrudView extends CssLayout implements View {
 
-    public static final String VIEW_NAME = "Medico";
+    public static final String VIEW_NAME = "Industrial";
     private ServicioGrid grid;
     private ManifiestoForm form;
     private TextField filter;

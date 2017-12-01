@@ -53,6 +53,8 @@ public class MyUI extends UI {
     protected void showMainView() {
         addStyleName(ValoTheme.UI_WITH_MENU);
         setContent(new MainScreen(MyUI.this));
+        System.out.println("estado: "+getNavigator().getState());
+//        getNavigator().
         getNavigator().navigateTo(getNavigator().getState());
     }
 

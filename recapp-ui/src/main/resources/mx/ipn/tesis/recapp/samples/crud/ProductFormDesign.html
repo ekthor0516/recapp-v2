@@ -11,8 +11,9 @@
             <vaadin-text-field caption="Precio" _id="price" width-full />
             <v-text-field _id="stockCount" caption="Número de Contenedores" width-full />
         </v-horizontal-layout>
-        <vaadin-combo-box caption="Tipo Residuo" _id="availability" width-full null-selection-allowed=false text-input-allowed=false />
-        <vaadin-check-box-group _id="category" caption="Tipo de Residuos" width-full />
+        <vaadin-combo-box caption="Tipo Residuo" _id="availability" width-full null-selection-allowed=false text-input-allowed=false />                
+        
+        <vaadin-check-box-group _id="category" caption="Empresa Generadora" width-full />
         <v-css-layout :expand style-name="expander" />
                
         <v-horizontal-layout width-full>

@@ -88,7 +88,7 @@ public class ServicioMockDataGenerator {
             p.setStockCount(random.nextInt(1));
         }
 
-        p.setCategory(getCategory(categories, 1, 2));
+        p.setCategory(getCategory(categories, 1, 1));
         return p;
     }
 
