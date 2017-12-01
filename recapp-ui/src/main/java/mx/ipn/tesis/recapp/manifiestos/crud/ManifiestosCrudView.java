@@ -66,7 +66,7 @@ public class ManifiestosCrudView extends CssLayout implements View {
     public HorizontalLayout createTopBar() {
         filter = new TextField();
         filter.setStyleName("filter-textfield");
-        filter.setPlaceholder("Filtrar empresa, estado o tipo residuo");
+        filter.setPlaceholder("Inserte manifiesto");
         ResetButtonForTextField.extend(filter);
         // Apply the filter to grid's data provider. TextField value is never null
         filter.addValueChangeListener(event -> dataProvider.setFilter(event.getValue()));

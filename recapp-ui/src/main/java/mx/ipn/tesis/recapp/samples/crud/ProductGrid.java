@@ -23,8 +23,8 @@ public class ProductGrid extends Grid<Product> {
     public ProductGrid() {
         setSizeFull();
 
-        addColumn(Product::getId, new NumberRenderer()).setCaption("Número Manifiesto");
-        addColumn(Product::getProductName).setCaption("Empresa Generadora");
+        addColumn(Product::getId, new NumberRenderer()).setCaption("Registro");
+        addColumn(Product::getProductName).setCaption("Número Manifiesto");
 
         // Format and add " €" to price
         final DecimalFormat decimalFormat = new DecimalFormat();
@@ -37,7 +37,7 @@ public class ProductGrid extends Grid<Product> {
 
         // Add an traffic light icon in front of availability
         addColumn(this::htmlFormatAvailability, new HtmlRenderer())
-                .setCaption("Tipo Servicio").setComparator((p1, p2) -> {
+                .setCaption("Empresa Generadora").setComparator((p1, p2) -> {
                     return p1.getAvailability().toString()
                             .compareTo(p2.getAvailability().toString());
                 });

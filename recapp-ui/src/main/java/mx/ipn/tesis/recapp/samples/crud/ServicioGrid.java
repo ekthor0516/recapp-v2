@@ -23,8 +23,8 @@ public class ServicioGrid extends Grid<Servicio> {
     public ServicioGrid() {
         setSizeFull();
 
-        addColumn(Servicio::getId, new NumberRenderer()).setCaption("Número Manifiesto");
-        addColumn(Servicio::getProductName).setCaption("Empresa Generadora");
+        addColumn(Servicio::getId, new NumberRenderer()).setCaption("");
+        addColumn(Servicio::getProductName).setCaption("Manifiesto");
 
         // Format and add " €" to price
         final DecimalFormat decimalFormat = new DecimalFormat();
@@ -37,7 +37,7 @@ public class ServicioGrid extends Grid<Servicio> {
 
         // Add an traffic light icon in front of availability
         addColumn(this::htmlFormatAvailability, new HtmlRenderer())
-                .setCaption("Estatus").setComparator((p1, p2) -> {
+                .setCaption("Empresa Generadora").setComparator((p1, p2) -> {
                     return p1.getAvailability().toString()
                             .compareTo(p2.getAvailability().toString());
                 });

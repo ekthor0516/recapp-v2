@@ -64,7 +64,7 @@ public class SampleCrudView extends CssLayout implements View {
     public HorizontalLayout createTopBar() {
         filter = new TextField();
         filter.setStyleName("filter-textfield");
-        filter.setPlaceholder("Filtrar nombre, disponibilidad o categoria");
+        filter.setPlaceholder("Inserte Manifiesto");
         ResetButtonForTextField.extend(filter);
         // Apply the filter to grid's data provider. TextField value is never null
         filter.addValueChangeListener(event -> dataProvider.setFilter(event.getValue()));
